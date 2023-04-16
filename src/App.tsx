@@ -32,6 +32,10 @@ function App() {
 
     const filteredMovies = movies.filter(el => filter.toLowerCase() === "all" ? el : el.genre.toLowerCase() === filter.toLowerCase())
 
+    const rating=(nameFIlm:string,rating:number)=>{
+
+    }
+
     return (
         <header className="App">
             <div className={'main'}>

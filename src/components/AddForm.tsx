@@ -10,6 +10,8 @@ export const AddForm = (props: PropsType) => {
 
     const [isCollapsed, setIsCollapsed] = useState<boolean>(false)
 
+    const [rating, setRating] = useState<number>(0)
+
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setNameFilm(e.currentTarget.value)
     }
