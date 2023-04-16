@@ -17,8 +17,8 @@ function App() {
     ])
     const [filter, setFilter] = useState<string>("All")
 
-    const addFilm = (nameFilm:string) => {
-        let newFilm = {id: v1(), name: nameFilm, watched: false, rating: 98, genre: "Crime"}
+    const addFilm = (nameFilm:string,newRating:number) => {
+        let newFilm = {id: v1(), name: nameFilm, watched: false, rating: newRating, genre: "Crime"}
         setMovies([...movies,newFilm])
     }
 
@@ -32,9 +32,9 @@ function App() {
 
     const filteredMovies = movies.filter(el => filter.toLowerCase() === "all" ? el : el.genre.toLowerCase() === filter.toLowerCase())
 
-    const rating=(nameFIlm:string,rating:number)=>{
-
-    }
+    // const rating=(nameFIlm:string,rating:number)=>{
+    //
+    // }
 
     return (
         <header className="App">

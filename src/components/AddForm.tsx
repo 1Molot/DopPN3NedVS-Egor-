@@ -1,7 +1,7 @@
 import React, {ChangeEvent, MouseEventHandler, useState} from 'react';
 
 type PropsType = {
-    addFilm: (nameFilm: string) => void
+    addFilm: (nameFilm: string,newRating:number) => void
 }
 
 export const AddForm = (props: PropsType) => {
@@ -15,9 +15,13 @@ export const AddForm = (props: PropsType) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setNameFilm(e.currentTarget.value)
     }
+    const onChangeHandlerRating = (e: ChangeEvent<HTMLInputElement>) => {
+        setRating(+e.currentTarget.value)
+    }
     const addFilmHandler = () => {
-        props.addFilm(nameFilm)
+        props.addFilm(nameFilm,rating)
         setNameFilm('' )
+        setRating(0)
     }
     const collapsedHandler = () => {
         setIsCollapsed(!isCollapsed)
@@ -29,7 +33,7 @@ export const AddForm = (props: PropsType) => {
             { !isCollapsed &&
                 <div>
                 <input value={nameFilm} onChange={onChangeHandler}/>
-                <input/>
+                <input value={rating} type={'number'} min={0} onChange={onChangeHandlerRating}/>
                 <button onClick={addFilmHandler}>Add</button>
             </div>
             }

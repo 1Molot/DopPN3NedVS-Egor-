@@ -5,7 +5,7 @@ export type PropsType = {
     movies: MovieType[]
     title: string
     removeFilms: (id: string) => void
-    addFilm: (nameFilm:string) => void
+    addFilm: (nameFilm:string,newRating:number) => void
 }
 
 export type MovieType = {

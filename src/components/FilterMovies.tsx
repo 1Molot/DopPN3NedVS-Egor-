@@ -3,7 +3,7 @@ import React, {ChangeEvent} from 'react';
 type PropsType = {
     filter: string
     genreFilter:(filterValue:string) => void
-    addFilm:(nameFilm:string)=>void
+    addFilm:(nameFilm:string,newRating:number)=>void
 }
 
 export const FilterMovies = (props: PropsType) => {
