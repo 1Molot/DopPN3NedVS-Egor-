@@ -15,7 +15,7 @@ export const AddForm = (props: PropsType) => {
     }
     const addFilmHandler = () => {
         props.addFilm(nameFilm)
-        setNameFilm(nameFilm)
+        setNameFilm('' )
     }
     const collapsedHandler = () => {
         setIsCollapsed(!isCollapsed)
@@ -35,5 +35,5 @@ export const AddForm = (props: PropsType) => {
     )
 }
 
-///по кнопке адд или интер зачищялся инпут
-// добавить рецнти нг
+///по кнопке адд или интер зачищялся инпут ///
+// добавить рейнти нг
