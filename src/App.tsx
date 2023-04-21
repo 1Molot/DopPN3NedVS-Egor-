@@ -22,6 +22,10 @@ function App() {
         setMovies([...movies,newFilm])
     }
 
+    const changeStatus = (id:string,watched:boolean) => {
+        setMovies(movies.map(el => el.id === id ? {...el,watched:watched}:el))
+    }
+
     const genreFilter = (filterValue: string) => {
         setFilter(filterValue)
     }
@@ -31,10 +35,6 @@ function App() {
     }
 
     const filteredMovies = movies.filter(el => filter.toLowerCase() === "all" ? el : el.genre.toLowerCase() === filter.toLowerCase())
-
-    // const rating=(nameFIlm:string,rating:number)=>{
-    //
-    // }
 
     return (
         <header className="App">
@@ -49,6 +49,7 @@ function App() {
                         title={title}
                         removeFilms={removeFilms}
                         addFilm={addFilm}
+                        changeStatus={changeStatus}
                     />
 
                 </ul>

@@ -1,7 +1,8 @@
-import React, {ChangeEvent, MouseEventHandler, useState} from 'react';
+import React, {ChangeEvent,  useState} from 'react';
+import {SuperButton} from "./SuperButton";
 
 type PropsType = {
-    addFilm: (nameFilm: string,newRating:number) => void
+    addFilm: (nameFilm: string, newRating: number) => void
 }
 
 export const AddForm = (props: PropsType) => {
@@ -19,27 +20,28 @@ export const AddForm = (props: PropsType) => {
         setRating(+e.currentTarget.value)
     }
     const addFilmHandler = () => {
-        props.addFilm(nameFilm,rating)
-        setNameFilm('' )
+        props.addFilm(nameFilm, rating)
+        setNameFilm('')
         setRating(0)
     }
     const collapsedHandler = () => {
         setIsCollapsed(!isCollapsed)
     }
+    let buttonDisabled = true
 
     return (
         <div>
-            <button onClick={collapsedHandler}>Add Film</button>
-            { !isCollapsed &&
+            {/*<button onClick={collapsedHandler}>Add Film</button>*/}
+            <SuperButton name={'Add Film'} onClickCallback={collapsedHandler}/>
+            {!isCollapsed &&
                 <div>
-                <input value={nameFilm} onChange={onChangeHandler}/>
-                <input value={rating} type={'number'} min={0} onChange={onChangeHandlerRating}/>
-                <button onClick={addFilmHandler}>Add</button>
-            </div>
+                    <input value={nameFilm} type={'text'} onChange={onChangeHandler}/>
+                    <input value={rating} type={'number'} min={0} onChange={onChangeHandlerRating}/>
+                    <SuperButton name={'ADD'} onClickCallback={addFilmHandler}  disabled={buttonDisabled}
+                    />
+                    {/*<button onClick={addFilmHandler}>Add</button>*/}
+                </div>
             }
         </div>
     )
 }
-
-///по кнопке адд или интер зачищялся инпут ///
-// добавить рейнти нг
